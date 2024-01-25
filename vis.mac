@@ -1,0 +1,26 @@
+# Макрос файл для настройки интерфейса программы
+
+/vis/open OGL
+/vis/viewer/set/viewpointVector 0 1 -1
+/vis/drawVolume
+/vis/viewer/set/autoRefresh true
+/vis/scene/add/trajectories smooth
+/vis/scene/endOfEventAction accumulate
+
+# Цвет фона - белый
+/vis/viewer/set/background 255 255 255
+
+# Установка стандартного цвета - черный (рамки мира)
+/vis/viewer/set/defaultColour 0 0 0
+
+/vis/geometry/set/colour logicSteelCatcher 0 255 0 0 1
+/vis/geometry/set/forceSolid logicSteelCatcher ! !
+
+/vis/geometry/set/colour logicConcreteCatcher 0 128 128 0 0.2
+/vis/geometry/set/forceSolid logicConcreteCatcher ! !
+
+/vis/scene/add/axes    # Simple axes: x=red, y=green, z=blue.
+
+/vis/filtering/trajectories/create/particleFilter filt1
+/vis/filtering/trajectories/filt1/add proton
+/vis/filtering/trajectories/filt1/add neutron
