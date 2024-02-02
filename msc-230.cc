@@ -16,6 +16,9 @@ int main(int argc, char** argv) {
         ui = new G4UIExecutive(argc, argv);
     }
 
+    CLHEP::HepRandom::setTheEngine(new CLHEP::MTwistEngine); 
+    CLHEP::HepRandom::setTheSeed((unsigned)clock()); 
+
     auto runManager = G4RunManagerFactory::CreateRunManager();
 
     MSCPhysicalConstruction* world = new MSCPhysicalConstruction();

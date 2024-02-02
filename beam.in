@@ -13,4 +13,4 @@
 /gps/ang/maxtheta 0.018 rad
 
 #/run/beamOn 500000
-/run/beamOn 20000000
+/run/beamOn 50000000
