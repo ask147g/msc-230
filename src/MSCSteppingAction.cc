@@ -11,7 +11,7 @@ MSCSteppingAction::~MSCSteppingAction() = default;
 void MSCSteppingAction::UserSteppingAction(const G4Step* aStep) {
     G4int pdg = aStep->GetTrack()->GetParticleDefinition()->GetPDGEncoding();
 
-    if (pdg == 2212) { // protons
+    /*if (pdg == 2212) { // protons
         if (!steel) {
             const auto det = static_cast<const MSCPhysicalConstruction*>(
                 G4RunManager::GetRunManager()->GetUserDetectorConstruction());
@@ -42,7 +42,7 @@ void MSCSteppingAction::UserSteppingAction(const G4Step* aStep) {
                 //if (time < fEvtAction->GetMinValue()) fEvtAction->SetMinValue(time);
             }
         }
-    }
+    }*/
 
     if (pdg != 2112) return; // neutrons
 
@@ -64,6 +64,7 @@ void MSCSteppingAction::UserSteppingAction(const G4Step* aStep) {
         G4LogicalVolume* volumePost = vol->GetLogicalVolume();
     
     auto time = aStep->GetTrack()->GetGlobalTime()/CLHEP::microsecond;
+    auto energy = aStep->GetTrack()->GetKineticEnergy()/CLHEP::MeV;
     //if (time == 0) return;
 
     //if ((volume != concrete) && (volume != steel)) {
@@ -80,6 +81,6 @@ void MSCSteppingAction::UserSteppingAction(const G4Step* aStep) {
     if ((volume == concrete) && (volumePost == wall)) {
         //G4cout << aStep->GetTrack()->GetMomentum().z() << " " << aStep->GetTrack()->GetPosition().z() << G4endl;
         //G4cout << aStep->GetTrack()->GetPosition().z() << G4endl;
-        fHistoManager->FillNtuple(time);
+        fHistoManager->FillNtuple(time, energy);
     }
 }

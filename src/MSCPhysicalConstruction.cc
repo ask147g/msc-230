@@ -101,7 +101,7 @@ G4VPhysicalVolume* MSCPhysicalConstruction::Construct() {
 
     BuildCatcher();
     BuildDetector();
-    BuildProtonDetector();
+    //BuildProtonDetector();
     
 	return physWorld;
 }

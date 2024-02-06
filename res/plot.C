@@ -11,7 +11,7 @@ void plot() {
     trN->SetBranchAddress("nt", &time);
     int entr = trN->GetEntries();
     
-    TH1* h1 = new TH1F("h1", "", 1000, 46.0, 50);
+    TH1* h1 = new TH1F("h1", "", 1000, 46.0, 80);
     h1->GetYaxis()->SetTitle("N, neutrons");
     h1->GetXaxis()->SetTitle("t, ns");
     h1->SetFillColor(1);

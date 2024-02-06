@@ -15,7 +15,7 @@ public:
     void Book();
     void Save();
 
-    void FillNtuple(G4double t);
+    void FillNtuple(G4double t, G4double e);
     //void FillNtupleProton(G4int id, G4double t);
     void FillNtupleProtonDelta(G4double t);
 private:

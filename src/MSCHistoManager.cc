@@ -33,6 +33,7 @@ void MSCHistoManager::Book() {
   if ( ! fFactoryOn ) {
     analysisManager->CreateNtuple("neutron", "neutron");// column Id = 0
     analysisManager->CreateNtupleDColumn("t");
+    analysisManager->CreateNtupleDColumn("e");
     analysisManager->FinishNtuple();
 
     analysisManager->CreateNtuple("proton", "proton");// column Id = 1
@@ -57,9 +58,10 @@ void MSCHistoManager::Save() {
   G4cout << "\n----> Histograms and ntuples are saved\n" << G4endl;
 }
 
-void MSCHistoManager::FillNtuple(G4double t) {
+void MSCHistoManager::FillNtuple(G4double t, G4double e) {
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
   analysisManager->FillNtupleDColumn(0, 0, t);  
+  analysisManager->FillNtupleDColumn(0, 1, e);  
   analysisManager->AddNtupleRow(0);
 }
 
