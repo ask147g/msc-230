@@ -17,7 +17,9 @@ int main(int argc, char** argv) {
     }
 
     CLHEP::HepRandom::setTheEngine(new CLHEP::MTwistEngine); 
-    CLHEP::HepRandom::setTheSeed((unsigned)clock()); 
+    auto seed = (unsigned)clock();
+    G4cout << seed << G4endl;
+    CLHEP::HepRandom::setTheSeed(seed); 
 
     auto runManager = G4RunManagerFactory::CreateRunManager();
 
@@ -46,6 +48,8 @@ int main(int argc, char** argv) {
         ui->SessionStart();
         delete ui;
     }
+
+    G4cout << seed << G4endl;
 	
     delete visManager;
     delete runManager;

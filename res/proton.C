@@ -9,7 +9,7 @@ void proton() {
     h1->SetFillColor(1);
     h1->SetLineColor(1);
     
-    Float_t entr = 120000000;
+    Float_t entr = 160000000;
     
     for (int i = 0; i < entr; i++) {
         h1->Fill(0.00);
