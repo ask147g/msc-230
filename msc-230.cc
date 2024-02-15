@@ -16,9 +16,12 @@ int main(int argc, char** argv) {
         ui = new G4UIExecutive(argc, argv);
     }
 
+    int seed = (unsigned)clock();
+    if (argc == 3) {
+        seed = std::atoi(argv[2]);
+    }
+
     CLHEP::HepRandom::setTheEngine(new CLHEP::MTwistEngine); 
-    auto seed = (unsigned)clock();
-    G4cout << seed << G4endl;
     CLHEP::HepRandom::setTheSeed(seed); 
 
     auto runManager = G4RunManagerFactory::CreateRunManager();
